@@ -10,7 +10,7 @@ import {
   StatusBar,
 } from "react-native";
 
-export default function HomeScreen() {
+export default function HomeScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
@@ -42,11 +42,17 @@ export default function HomeScreen() {
 
           {/* Buttons */}
           <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.buttonPrimary}>
+            <TouchableOpacity
+              style={styles.buttonPrimary}
+              onPress={() => navigation.navigate("GetStarted")}
+            >
               <Text style={styles.buttonPrimaryText}>Get Started</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity style={styles.buttonSecondary}>
+            <TouchableOpacity
+              style={styles.buttonSecondary}
+              onPress={() => navigation.navigate("Moredetails")}
+            >
               <Text style={styles.buttonSecondaryText}>View More</Text>
             </TouchableOpacity>
           </View>
@@ -102,6 +108,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#7ab547", // Green color from the image
     lineHeight: 40,
+    // borderWidth:1,
   },
   headlineDark: {
     fontSize: 36,
